@@ -18,16 +18,21 @@ USAGE
 # Grab some of the values from the slash command, create vars for post back to Slack
 $command = $_POST['command'];
 $token = $_POST['token'];
+$text = $_POST['text'];
 # Check the token and make sure the request is from our team 
 if($token != 'S13kr23oqMAUvTaLn0cD1oDe'){ #replace this with the token from your slash command configuration page
   $msg = "The token for the slash command doesn't match. Check your script.";
   die($msg);
   echo $msg;
 }
-$user_agent = "XDASimulator/1.0";
+$user_agent = "XDASimulator/1.1";
 $words = array( "voltez", "does", "no", "not", "thinks", "dev", "sir", "pls",
-                "jiosim", "rom", "bro", "carbin", "kernal", "voLte", "broke",
-                "work", "good", "bad", "neeed", "it", "its", "other" );
+	       "jiosim", "rom", "bro", "carbin", "kernal", "voLte", "broke",
+	       "work", "good", "bad", "neeed", "it", "its", "other",
+	       "legend rom", "linage", "rr", "pocketmode", "oxygen oos camera" );
+if (!empty($text)) {
+	$words[] = $text;
+}
 $size = rand(2, 10);
 $reply = "";
 for ($i = 0; $i < $size; $i++) {
@@ -38,7 +43,7 @@ for ($i = 0; $i < $size; $i++) {
 # Encode response in JSON
 $data = array(
 	response_type => in_channel,
-  text => $reply
+    text => $reply
 );
 
 header('Content-type:application/json');
