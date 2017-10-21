@@ -28,7 +28,7 @@ if($token != 'S13kr23oqMAUvTaLn0cD1oDe'){ #replace this with the token from your
 $user_agent = "XDASimulator/1.1";
 $words = array( "voltez", "does", "no", "not", "thinks", "dev", "sir", "pls",
 	       "jiosim", "rom", "bro", "carbin", "kernal", "voLte", "broke",
-	       "work", "good", "bad", "neeed", "it", "its", "other",
+	       "work", "good", "bad", "neeed", "it", "its", "other", "sultanized",
 	       "legend rom", "linage", "rr", "pocketmode", "oxygen oos camera" );
 if (!empty($text)) {
 	$words[] = $text;
